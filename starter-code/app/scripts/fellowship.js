@@ -38,9 +38,7 @@ function makeMiddleEarth() {
 
 function makeHobbits() {
   // display an unordered list from the hobbits array inside the shire article tag
-  // (this is the first article tag on the page)
   // give each hobbit a class of hobbit and set the text of each list item to each hobbit's name
-  
 }
 
 
@@ -52,7 +50,6 @@ function keepItSecretKeepItSafe() {
   // add an event listener so that when a user clicks on the ring, the nazgulScreech 
   // function (provided) is invoked
   // add the ring as a child of Frodo
-  
 }
 
 function nazgulScreech(){
