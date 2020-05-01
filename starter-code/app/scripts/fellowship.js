@@ -16,7 +16,7 @@ const buddies = [
   'Boromir'
 ];
 
-const lands = ['The Shire', 'Rivendell', 'Mordor'];
+const lands = ['The-Shire', 'Rivendell', 'Mordor'];
 const body = document.querySelector('body');
 
 
@@ -30,7 +30,6 @@ function makeMiddleEarth() {
   // inside each article tag include an h1 with the name of the land
   // append each article to the middle earth section
   // append the middle earth section to your document body
-  
 }
 
 
@@ -50,6 +49,7 @@ function keepItSecretKeepItSafe() {
   // add an event listener so that when a user clicks on the ring, the nazgulScreech 
   // function (provided) is invoked
   // add the ring as a child of Frodo
+  // in order to do that, grab Frodo from the list of hobbits
 }
 
 function nazgulScreech(){
