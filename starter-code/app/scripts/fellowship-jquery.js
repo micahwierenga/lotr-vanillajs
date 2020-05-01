@@ -17,7 +17,7 @@ const buddies = [
 ];
 
 const lands = ['The Shire', 'Rivendell', 'Mordor'];
-const body = document.querySelector('body');
+const $body = $('body');
 
 
 // Part 1
@@ -30,7 +30,17 @@ function makeMiddleEarth() {
   // inside each article tag include an h1 with the name of the land
   // append each article to the middle earth section
   // append the middle earth section to your document body
-  
+  const $midEarth = $('<section>');
+  $midEarth.attr('id', 'middle-earth');
+
+  for(let i = 0; i < lands.length; i++) {
+    const $landArticle = $('<article>');
+    const $landTitle = $('<h1>');
+    $landTitle.text(lands[i]);
+    $landArticle.append($landTitle);
+    $midEarth.append($landArticle);
+  }
+  $body.append($midEarth);
 }
 
 
@@ -40,7 +50,18 @@ function makeHobbits() {
   // display an unordered list from the hobbits array inside the shire article tag
   // (this is the first article tag on the page)
   // give each hobbit a class of hobbit and set the text of each list item to each hobbit's name
-  
+  const $ul = $('<ul>');
+
+  const $shire = $('article').eq(0);
+//   const $shire = $('article').first();
+  for(let i = 0; i < hobbits.length; i++) {
+    const $li = $('<li>')
+    $li.text(hobbits[i]);
+    $li.addClass('hobbit');
+    $ul.append($li);
+  }
+
+  $shire.append($ul);
 }
 
 
@@ -52,11 +73,17 @@ function keepItSecretKeepItSafe() {
   // add an event listener so that when a user clicks on the ring, the nazgulScreech 
   // function (provided) is invoked
   // add the ring as a child of Frodo
-  
+  const $div = $('<div>');
+  $div.attr('id', 'the-ring');
+  $div.addClass('magic-imbued-jewelry');
+  $div.on('click', nazgulScreech)
+
+  const frodo = $('.hobbit').eq(0);
+  frodo.append($div);
 }
 
 function nazgulScreech(){
-  document.querySelector('#nazgul-screech').play();
+  $('#nazgul-screech').get(0).play();
 }
 
 
@@ -146,20 +173,20 @@ function thereAndBackAgain() {
   
 }
 
-document.querySelector('#makeMiddleEarth').addEventListener('click', makeMiddleEarth);
-document.querySelector('#makeHobbits').addEventListener('click', makeHobbits);
-document.querySelector('#keepItSecretKeepItSafe').addEventListener('click', keepItSecretKeepItSafe);
-document.querySelector('#makeBuddies').addEventListener('click', makeBuddies);
-document.querySelector('#beautifulStranger').addEventListener('click', beautifulStranger);
-document.querySelector('#leaveTheShire').addEventListener('click', leaveTheShire);
-document.querySelector('#forgeTheFellowShip').addEventListener('click', forgeTheFellowShip);
-document.querySelector('#theBalrog').addEventListener('click', theBalrog);
-document.querySelector('#hornOfGondor').addEventListener('click', hornOfGondor);
-document.querySelector('#itsDangerousToGoAlone').addEventListener('click', itsDangerousToGoAlone);
-document.querySelector('#weWantsIt').addEventListener('click', weWantsIt);
-document.querySelector('#thereAndBackAgain').addEventListener('click', thereAndBackAgain);
+$('#makeMiddleEarth').on('click', makeMiddleEarth)
+$('#makeHobbits').on('click', makeHobbits)
+$('#keepItSecretKeepItSafe').on('click', keepItSecretKeepItSafe)
+$('#makeBuddies').on('click', makeBuddies)
+$('#beautifulStranger').on('click', beautifulStranger)
+$('#leaveTheShire').on('click', leaveTheShire)
+$('#forgeTheFellowShip').on('click', forgeTheFellowShip)
+$('#theBalrog').on('click', theBalrog)
+$('#hornOfGondor').on('click', hornOfGondor)
+$('#itsDangerousToGoAlone').on('click', itsDangerousToGoAlone)
+$('#weWantsIt').on('click', weWantsIt)
+$('#thereAndBackAgain').on('click', thereAndBackAgain)
 
-document.querySelector('#clickAll').addEventListener('click', function(e) {
+$('#clickAll').on('click', function(e) {
   makeMiddleEarth();
   makeHobbits();
   keepItSecretKeepItSafe();
